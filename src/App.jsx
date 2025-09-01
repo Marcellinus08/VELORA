@@ -1,9 +1,12 @@
+import MainLayout from "./components/layouts/MainLayout";
+import Home from "./pages/Home";
+
 function App() {
   return (
-    <div className="flex justify-center">
-      <div>Hello Word</div>
-    </div>
-  )
-}
+    <MainLayout>
+      <Home />
+    </MainLayout>
+  );
+};
 
 export default App;
