@@ -8,16 +8,16 @@ export default function MainLayout({ children }) {
 
   return (
     <div
-      className="relative flex min-h-screen size-full flex-col overflow-x-hidden bg-neutral-900"
+      className="relative flex min-h-screen size-full flex-col overflow-x-hidden bg-neutral-900 pt-[57px] md:pl-64"
       style={{ fontFamily: '"Be Vietnam Pro","Noto Sans",sans-serif' }}
     >
-      {/* Header */}
-      <header className="sticky top-0 z-20 flex w-full items-center justify-between gap-4 border-b border-neutral-800 bg-neutral-900 px-4 py-2 sm:px-6 lg:px-8">
+      {/* Header (FIXED) */}
+      <header className="fixed inset-x-0 top-0 z-40 flex w-full items-center justify-between gap-4 border-b border-neutral-800 bg-neutral-900 px-4 py-2 sm:px-6 lg:px-8">
         <div className="flex items-center gap-4">
           <button
             onClick={() => setOpen((v) => !v)}
             className="flex items-center justify-center rounded-full p-2 text-neutral-50 hover:bg-neutral-800 md:hidden"
-            aria-label="Buka menu"
+            aria-label="Open menu"   // was: Buka menu
           >
             <Icon name="menu" className="size-6" />
           </button>
@@ -30,15 +30,15 @@ export default function MainLayout({ children }) {
           </div>
         </div>
 
-        {/* Search */}
-        <div className="flex flex-1 justify-center px-4 md:ml-[16.5rem] md:flex-grow-0 md:justify-start md:px-0">
+        {/* Search (hapus md:ml-[16.5rem]) */}
+        <div className="flex flex-1 justify-center px-4 md:flex-grow-0 md:justify-start md:px-0">
           <div className="w-full max-w-2xl">
             <label className="relative flex w-full">
               <div className="relative w-full">
                 <input
                   className="form-input h-10 w-full rounded-full border border-neutral-800 bg-neutral-900 py-2 pl-10 pr-4 text-base text-neutral-50 placeholder:text-neutral-400 focus:border-[var(--primary-500)] focus:outline-none focus:ring-0"
-                  placeholder="Cari"
-                  aria-label="Cari"
+                  placeholder="Search"
+                  aria-label="Search"
                 />
                 <div className="absolute inset-y-0 left-0 flex items-center pl-3">
                   <Icon name="search" className="size-5 text-neutral-400" />
@@ -48,19 +48,12 @@ export default function MainLayout({ children }) {
           </div>
         </div>
 
-        {/* Right */}
         <div className="flex items-center gap-2 sm:gap-4">
           <TopBarStats />
-          <button
-            className="flex size-10 items-center justify-center rounded-full text-neutral-50 hover:bg-neutral-800"
-            aria-label="Tambah"
-          >
+          <button className="flex size-10 items-center justify-center rounded-full text-neutral-50 hover:bg-neutral-800" aria-label="Add">
             <Icon name="plus" className="h-6 w-6" />
           </button>
-          <button
-            className="flex size-10 items-center justify-center rounded-full text-neutral-50 hover:bg-neutral-800"
-            aria-label="Notifikasi"
-          >
+          <button className="flex size-10 items-center justify-center rounded-full text-neutral-50 hover:bg-neutral-800" aria-label="Notifications">
             <Icon name="bell" width={20} height={20} />
           </button>
           <Avatar
@@ -71,11 +64,9 @@ export default function MainLayout({ children }) {
       </header>
 
       <div className="flex h-full grow flex-row">
-        {/* Sidebar */}
+        {/* Sidebar (FIXED) */}
         <aside
-          className={`${
-            open ? "flex" : "hidden"
-          } md:flex sticky top-[57px] h-[calc(100vh-57px)] w-64 flex-shrink-0 flex-col gap-y-2 overflow-y-auto border-r border-neutral-800 bg-neutral-900 px-3 py-4`}
+          className={`${open ? "flex" : "hidden"} md:flex fixed top-[57px] left-0 z-30 h-[calc(100vh-57px)] w-64 flex-col gap-y-2 overflow-y-auto border-r border-neutral-800 bg-neutral-900 px-3 py-4`}
         >
           <nav className="flex flex-col gap-1">
             {[

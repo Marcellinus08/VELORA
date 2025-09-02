@@ -1,1 +1,9 @@
 @import "tailwindcss";
+
+:root{
+  --primary-500:#9D00FF;
+  --neutral-900:#000000;
+  --neutral-800:#1f1f1f;
+  --neutral-400:#a0a0a0;
+  --neutral-50:#ffffff;
+}
